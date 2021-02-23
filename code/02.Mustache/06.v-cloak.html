@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../tools/vue.js"></script>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- 防止直接显然出未编译的 Mustache 标签 -->
+    <h2 v-cloak>{{message}}</h2>
+  </div>
+  <script>
+    setTimeout(() => {
+      const app = new Vue({
+        el: '#app',
+        data: {
+          message: 'loki'
+        }
+      })
+    }, 3000)
+  </script>
+</body>
+</html>
