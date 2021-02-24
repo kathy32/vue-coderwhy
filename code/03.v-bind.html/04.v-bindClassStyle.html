@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../tools/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h2 :style="{fontSize:'32px'}">{{name}}</h2>
+    <h2 :style="{fontSize:finalSize, color:finalColor}">{{name}}</h2>
+    <h2 :style="getStyle()">{{name}}</h2>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        name: 'loki',
+        finalSize: '32px',
+        finalColor: 'red'
+      },
+      methods: {
+        getStyle: function () {
+          return {fontSize:this.finalSize, color:this.finalColor}
+        }
+      }
+    })
+  </script>
+</body>
+</html>
