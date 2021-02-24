@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../tools/vue.js"></script>
+  <style>
+    .deactive {
+      color: red;
+    }
+    .active {
+      color: hotpink
+    }
+    .line {
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- 注意：此处是 hotpink，样式 覆盖 是看 style 中的 css-->
+    <h2 class="title" :class="['active', 'line', 'deactive']">{{message}}</h2>
+
+    <h2 :class="[active, line]">{{message}}</h2>
+    <h2 :class="getClasses()">{{message}}</h2>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'loki',
+        active: 'aaa',
+        line: 'bbb'
+      },
+      methods: {
+        getClasses: function () {
+          return [this.active, this.line]
+        }
+      }
+    })
+  </script>
+</body>
+</html>
