@@ -9,7 +9,11 @@
 <body>
   <div id="app">
     <h2>{{firstName + ' ' + lastName}}</h2>
+
+    <!-- methods 会重复调用，没有缓存 -->
     <h2>{{getFullName()}}</h2>
+
+    <!-- computed 具有缓存，当值改变的时候才重新调用 fullName 方法-->
     <h2>{{fullName}}</h2>
   </div>
   <script>
